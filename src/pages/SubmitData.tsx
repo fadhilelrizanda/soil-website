@@ -36,7 +36,7 @@ function SubmitData() {
           <form onSubmit={handleSubmit}>
             <div className="col-md-8 input-card">
               <h4 className="text-center mt-5 mb-5">
-                Analisa Dengan Metoda Bagemann dan Shertmann
+                Soil Analysis Bagemann and Shertmann
               </h4>
               <div className="row justify-content-center">
                 <div className="col-md-5">
@@ -50,7 +50,7 @@ function SubmitData() {
                       }}
                       step="any"
                     />
-                    <label htmlFor="floatingInput">Kedalaman</label>
+                    <label htmlFor="floatingInput">Depth (Meter) </label>
                   </div>
                 </div>
                 <div className="col-md-5">
@@ -62,9 +62,7 @@ function SubmitData() {
                       onChange={(e) => setHB(Number(e.target.value))}
                       step="any"
                     />
-                    <label htmlFor="floatingInput">
-                      Perlawanan Konus (Mpa)
-                    </label>
+                    <label htmlFor="floatingInput">Qc(Mpa)</label>
                   </div>
                 </div>
                 <div className="col-md-5">
@@ -78,7 +76,7 @@ function SubmitData() {
                       }}
                       step="any"
                     />
-                    <label htmlFor="floatingInput">Hambatan Lekat (Mpa)</label>
+                    <label htmlFor="floatingInput">fs(Mpa)</label>
                   </div>
                 </div>
                 <div className="col-md-5">
@@ -90,7 +88,7 @@ function SubmitData() {
                       onChange={(e) => setFR(Number(e.target.value))}
                       step="any"
                     />
-                    <label htmlFor="floatingInput">Rasio Gesekan (%)</label>
+                    <label htmlFor="floatingInput">FR(%)</label>
                   </div>
                 </div>
                 <div className="col-md-5">
@@ -104,7 +102,7 @@ function SubmitData() {
                       }}
                       step="any"
                     />
-                    <label htmlFor="floatingInput">Titik</label>
+                    <label htmlFor="floatingInput">Point</label>
                   </div>
                 </div>
               </div>

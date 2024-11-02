@@ -23,6 +23,13 @@ const TableData: React.FC<TableDataProps> = ({
   refresh_data,
   project_id,
 }) => {
+  const sortedData = [...data].sort((a, b) => {
+    if (a.titik === b.titik) {
+      return b.kedalaman - a.kedalaman; // Secondary sort by kedalaman in descending order
+    }
+    return b.titik - a.titik; // Primary sort by titik in descending order
+  });
+
   const handleDelete = async (p_id: string, d_id: string) => {
     try {
       const response = await deleteDataEntry(p_id, d_id);
@@ -39,18 +46,18 @@ const TableData: React.FC<TableDataProps> = ({
         <thead className="head">
           <tr className="tableHead">
             <th scope="col">No</th>
-            <th scope="col">Kedalaman</th>
-            <th scope="col">HB</th>
-            <th scope="col">HL</th>
-            <th scope="col">FR</th>
-            <th scope="col">Klasifikasi (Metoda Bagemann)</th>
-            <th scope="col">Klasifikasi (Shertmann)</th>
-            <th scope="col">Titik</th>
-            <th scope="col">Aksi</th>
+            <th scope="col">Depth (meter)</th>
+            <th scope="col">QC(Mpa)</th>
+            <th scope="col">fs(Mpa)</th>
+            <th scope="col">FR(%)</th>
+            <th scope="col">Classification (Bagemann)</th>
+            <th scope="col">Classification (Shertmann)</th>
+            <th scope="col">Point</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-          {data.map((row, index) => (
+          {sortedData.map((row, index) => (
             <tr key={row._id}>
               <th scope="row">{index + 1}.</th>
               <td>{row.kedalaman}</td>
