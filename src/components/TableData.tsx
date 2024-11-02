@@ -25,9 +25,9 @@ const TableData: React.FC<TableDataProps> = ({
 }) => {
   const sortedData = [...data].sort((a, b) => {
     if (a.titik === b.titik) {
-      return b.kedalaman - a.kedalaman; // Secondary sort by kedalaman in descending order
+      return a.kedalaman - b.kedalaman; // Secondary sort by kedalaman in ascending order
     }
-    return b.titik - a.titik; // Primary sort by titik in descending order
+    return a.titik - b.titik; // Primary sort by titik in ascending order
   });
 
   const handleDelete = async (p_id: string, d_id: string) => {
