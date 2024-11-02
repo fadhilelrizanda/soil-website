@@ -12,7 +12,7 @@ function SubmitData() {
   const [point, setPoint] = useState(0);
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: unknown) => {
     e.preventDefault();
 
     if (!id) {
