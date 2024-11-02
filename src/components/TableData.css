@@ -1,0 +1,10 @@
+.tableHead th {
+  background-color: #e8b86d !important;
+}
+
+.TableData h4 {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 25px;
+}

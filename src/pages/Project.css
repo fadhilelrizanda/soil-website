@@ -1,0 +1,39 @@
+.create_project {
+  .card-stat {
+    border-radius: 4px;
+    display: flex;
+    background-color: #e8b86d;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+
+    margin-left: 50px;
+  }
+
+  .card-stat p {
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: black;
+  }
+}
+
+.statistic {
+  justify-content: center;
+}
+
+.card-count {
+  max-height: 80px;
+  min-height: 60px;
+}
+
+.chart-graph {
+  /* display: flex; */
+  /* justify-content: center; */
+  /* justify-items: center; */
+  /* align-items: center; */
+  /* align-self: center; */
+}
+.btn-submit{
+  background-color: #886732 !important;
+  border: none !important;
+}
