@@ -13,9 +13,14 @@ function Project() {
   const { id } = useParams<{ id: string }>();
   const [dataProject, setDataproject] = useState<unknown>({});
   interface DataTableItem {
-    kedalaman: string;
+    _id: string;
+    kedalaman: number;
+    HB: number;
+    HL: number;
+    FR: number;
     bagemann: number;
     shertmann: number;
+    titik: number;
   }
   const classificationColors = [
     "#FF6384",
