@@ -9,7 +9,7 @@ function CreateProject() {
   const [desc, setDesc] = useState("");
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     try {
       const response = await createProject({ title, desc });

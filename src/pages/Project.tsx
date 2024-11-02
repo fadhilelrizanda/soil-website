@@ -11,7 +11,13 @@ import { bagemann_class, shertmann_class } from "../components/utils/utils";
 
 function Project() {
   const { id } = useParams<{ id: string }>();
-  const [dataProject, setDataproject] = useState<unknown>({});
+  interface ProjectData {
+    title: string;
+    desc: string;
+    data: DataTableItem[];
+  }
+
+  const [dataProject, setDataproject] = useState<ProjectData | null>(null);
   interface DataTableItem {
     _id: string;
     kedalaman: number;
@@ -98,7 +104,7 @@ function Project() {
 
   useEffect(() => {
     getDataProject();
-    const depthLabels = dataTable.map((item) => item.kedalaman);
+    const depthLabels = dataTable.map((item) => item.kedalaman.toString());
     const bagemannCounts: Record<string, number> = {};
     const shertmannCounts: Record<string, number> = {};
 
@@ -188,25 +194,19 @@ function Project() {
     setShertmannBarData(getBarData(shertmannDepthCounts, depthLabels));
   }, [dataTable]);
 
-  const getRandomColor = () => {
-    const letters = "0123456789ABCDEF";
-    let color = "#";
-    for (let i = 0; i < 6; i++)
-      color += letters[Math.floor(Math.random() * 16)];
-    return color;
-  };
-
   return (
     <>
       <Navbar />
       <div className="container create_project">
-        <h3 className="text-center mb-5 mt-5">Project {dataProject.title}</h3>
+        <h3 className="text-center mb-5 mt-5">
+          Project {dataProject?.title || ""}
+        </h3>
         <div className="row statistic">
           <div className="col-md-2 card-stat card-count">
-            <p>Total Data: {dataProject.data?.length || 0}</p>
+            <p>Total Data: {dataProject?.data?.length || 0}</p>
           </div>
           <div className="col-md-5 card-stat">
-            <p>{dataProject.desc}</p>
+            <p>{dataProject?.desc || ""}</p>
           </div>
           <div className="col-md-3">
             <Link to={`/add/data/${id}`}>
